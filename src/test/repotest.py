@@ -7,7 +7,7 @@ from geogigpy.diff import TYPE_MODIFIED
 from geogigpy.feature import Feature
 import unittest
 from geogigpy import geogig
-from shapely.geometry import MultiPolygon
+from geogigpy.geometry import Geometry
 from geogigpy.osmmapping import OSMMapping, OSMMappingRule
 import datetime
 from testrepo import testRepo
@@ -136,8 +136,8 @@ class GeogigRepositoryTest(unittest.TestCase):
         self.assertTrue("parktype" in data)
         self.assertTrue("area" in data)
         self.assertTrue("perimeter" in data)
-        self.assertTrue("the_geom" in data)        
-        self.assertTrue(isinstance(data["the_geom"][0], MultiPolygon))
+        self.assertTrue("the_geom" in data)
+        self.assertTrue(isinstance(data["the_geom"][0], Geometry))
 
     def testFeatureDataNonExistentFeature(self):  
         return       
